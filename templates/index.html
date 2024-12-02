@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset */
+
+
+body, h1, h2, p, table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(120deg, #f6d365, #fda085);
+    color: #333;
+    margin: 0;
+    background-color: #4CAF50;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Table Styling */
+.table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #333;
+}
+
+table th, table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table tr:hover {
+    background-color: #ffecb3;
+    cursor: pointer;
+    transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Button */
+.sync-button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sync-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 2rem;
+    border-radius: 0 0 10px 10px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sinkronisasi Data Sekolah</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Database BA</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kabupaten/Kota</th>
+                            <th>Negeri</th>
+                            <th>Swasta</th>
+                            <th>Jumlah</th>
+                            <th>N1</th>
+                            <th>S1</th>
+                            <th>Sub Jumlah 1</th>
+                            <th>N2</th>
+                            <th>S2</th>
+                            <th>Sub Jumlah 2</th>
+                            <th>N3</th>
+                            <th>S3</th>
+                            <th>Sub Jumlah 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data_BA %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>{{ row[6] }}</td>
+                            <td>{{ row[7] }}</td>
+                            <td>{{ row[8] }}</td>
+                            <td>{{ row[9] }}</td>
+                            <td>{{ row[10] }}</td>
+                            <td>{{ row[11] }}</td>
+                            <td>{{ row[12] }}</td>
+                            <td>{{ row[13] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>Database BB</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kabupaten/Kota</th>
+                            <th>Negeri</th>
+                            <th>Swasta</th>
+                            <th>Jumlah</th>
+                            <th>N1</th>
+                            <th>S1</th>
+                            <th>Sub Jumlah 1</th>
+                            <th>N2</th>
+                            <th>S2</th>
+                            <th>Sub Jumlah 2</th>
+                            <th>N3</th>
+                            <th>S3</th>
+                            <th>Sub Jumlah 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data_BB %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
+                            <td>{{ row[6] }}</td>
+                            <td>{{ row[7] }}</td>
+                            <td>{{ row[8] }}</td>
+                            <td>{{ row[9] }}</td>
+                            <td>{{ row[10] }}</td>
+                            <td>{{ row[11] }}</td>
+                            <td>{{ row[12] }}</td>
+                            <td>{{ row[13] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <form id="sync-form">
+            <button type="button" id="sync-button" class="sync-button">Sinkronisasi</button>
+        </form>
+
+        <!-- Message Placeholder -->
+        <div id="sync-message" class="message"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sinkronisasi Data Sekolah</p>
+    </footer>
+
+    <script>
+        // JavaScript for AJAX Sync
+        document.getElementById('sync-button').addEventListener('click', function () {
+            fetch('/sync', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => {
+                const messageBox = document.getElementById('sync-message');
+                messageBox.innerText = "Sinkronisasi berhasil!";
+                messageBox.style.color = "green";
+                setTimeout(() => {
+                    messageBox.innerText = "";
+                }, 3000); // Clear message after 3 seconds
+            })
+            .catch(error => {
+                const messageBox = document.getElementById('sync-message');
+                messageBox.innerText = "Sinkronisasi gagal!";
+                messageBox.style.color = "red";
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
